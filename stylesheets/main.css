@@ -1,0 +1,49 @@
+html,
+body {
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+    height: 100%;
+}
+
+main {
+    box-sizing: border-box;
+    width: 55%;
+    margin: 15px auto;
+    padding: 5px 0px;
+    border-radius: 25px;
+    border: 1px solid black;
+}
+
+#events,
+#event-details {
+    list-style-type: none;
+    padding: 0;
+    width: 90%;
+    margin: auto;
+}
+
+.event {
+    border-bottom: 1px solid;
+}
+
+.event:hover {
+    background-color: gray;
+}
+
+.event:last-child {
+    border-bottom: none;
+}
+
+.event h1 {
+    font-size: 1.5rem;
+    padding: 5px 0;
+}
+
+.event p {
+    font-size: 1rem;
+}
+
+#event-details {
+    display: none;
+}
