@@ -4,6 +4,7 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Local Events</title>
+        <link rel="stylesheet" href="stylesheets/spinner.css" />
         <link rel="stylesheet" href="stylesheets/main.css" />
     </head>
     <body>
@@ -12,12 +13,17 @@
                 <input id="event-search" type="search" placeholder="Search" aria-label="Search">
             </form> -->
         </nav>
+        <!-- <div class="main-image">
+            <img src="assets/event.jpg" alt="People at an event.">
+        </div> -->
         <main>
-            <div id="event-container">
+            <div id="event-list">
                 <ul id="events"></ul>
             </div>
-            <div id="event-details">
-                <p>asdf</p>
+            <div id="event-details" class="hidden">
+            </div>
+            <div id="spinner" class="spinner-container hidden">
+                <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
             </div>
         </main>
         <script src="scripts/app.js"></script>
