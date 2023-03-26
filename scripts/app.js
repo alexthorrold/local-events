@@ -1,68 +1,76 @@
 const req = new XMLHttpRequest();
 
-const eventsList = document.getElementById('event-list');
-const eventDetails = document.getElementById('event-details');
-const spinner = document.getElementById('spinner');
+const events = document.getElementById('events');
+// const eventDetails = document.getElementById('event-details');
+// const spinner = document.getElementById('spinner');
 
-const mainObjects = [eventsList, eventDetails, spinner];
+// const mainObjects = [eventsList, eventDetails, spinner];
 
-// const homeRef = document.getElementById('home-ref');
-// const eventSearch = document.getElementById('event-search');
-
-const changeDisplayedDiv = (div) => {
-    for (const o of mainObjects) {
-        if (div === o) {
-            o.classList.remove('hidden');
-        } else {
-            o.classList.add('hidden');
-        }
-    }
-};
+// const changeDisplayedDiv = (div) => {
+//     for (const o of mainObjects) {
+//         if (div === o) {
+//             o.classList.remove('hidden');
+//         } else {
+//             o.classList.add('hidden');
+//         }
+//     }
+// };
 
 const getAllEvents = () => {
     req.onload = () => {
-        changeDisplayedDiv(eventsList);
+        // changeDisplayedDiv(eventsList);
         processAllEventsData(req.responseText);
     };
 
-    changeDisplayedDiv(spinner);
+    // changeDisplayedDiv(spinner);
     const url = 'getjsondata.php';
     req.open('GET', url);
     req.send('');
 };
 
 const processAllEventsData = (res) => {
-    const events = JSON.parse(res);
+    const eventsList = JSON.parse(res);
 
-    for (const e of events) {
-        const newEvent = document.createElement('li');
-        newEvent.id = `event_${e.id}`;
-        newEvent.classList.add('event');
-        // TODO
-        // newEvent.addEventListener('mouseover');
+    for (const e of eventsList) {
+        // const newEvent = document.createElement('li');
+        // newEvent.id = `event_${e.id}`;
+        // newEvent.classList.add('event');
+        // // TODO
+        // // newEvent.addEventListener('mouseover');
 
-        newEvent.addEventListener('click', () => {
-            req.onload = () => {
-                processDetailedRequest(req.responseText);
-            };
+        // newEvent.addEventListener('click', () => {
+        //     req.onload = () => {
+        //         processDetailedRequest(req.responseText);
+        //     };
 
-            const url = `getjsondata.php?id=${e.id}`;
-            req.open('GET', url);
-            req.send('');
-        });
+        //     const url = `getjsondata.php?id=${e.id}`;
+        //     req.open('GET', url);
+        //     req.send('');
+        // });
 
+        // newEvent.innerHTML = `
+        //     <h1>${e.name}</h1>
+        //     `;
+
+        // eventsList.appendChild(newEvent);
+
+        const newEvent = document.createElement('div');
+        
         newEvent.innerHTML = `
             <h1>${e.name}</h1>
+            <p>${e.category}</p>
             `;
 
-        eventsList.appendChild(newEvent);
+        console.log(newEvent.innerHTML);
+
+        events.appendChild(newEvent);
     }
 };
 
 const processDetailedRequest = (res) => {
     const event = JSON.parse(res)[0];
 
-    changeDisplayedDiv(eventDetails);
+    // changeDisplayedDiv(eventDetails);
 
     eventDetails.innerHTML = `
         <h1>${event.name}</h1>

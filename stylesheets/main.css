@@ -7,7 +7,7 @@ body {
 }
 
 body {
-    background-color: #6e9795;
+    background-color: #252525;
 }
 
 ul,
@@ -18,13 +18,43 @@ h1 {
 }
 
 main {
-    box-sizing: border-box;
-    width: 55%;
-    margin: 15px auto;
-    border-radius: 25px;
-    border: 1px solid black;
+    /* box-sizing: border-box; */
+    width: 80%;
+    margin: auto;
+    /* margin: 15px auto; */
+    /* border-radius: 25px; */
+    /* border: 1px solid black; */
+    /* overflow: hidden; */
+    /* background-color: #ccd8d7; */
+}
+
+.events {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.events div {
+    border-radius: 15px;
+    margin: 10px;
+    flex: 0 1 30%;
+    width: 100%;
     overflow: hidden;
-    background-color: #CCD8D7;
+    background-color: #FEFEFE;
+}
+
+.events div * {
+    padding: 10px;
+    margin: 0;
+}
+
+.events div h1 {
+    font-size: 14pt;
+    background-color: #313131;
+    color: #FFFFFF;
+}
+
+.events div p {
 }
 
 #event-list {
